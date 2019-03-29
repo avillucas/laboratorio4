@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Iniciar sesión</h1>
+  
+  <div class="form">
+    <input type="text" [(ngModel)]="usuario.Email" placeholder="Email">
+    <input type="password"  [(ngModel)]="usuario.Password" placeholder="Password">
+    <button  (click)="login()" id="login-button">Login</button>
+  </div>
+  <button  (click)="navegar()" >Navegar</button>
+</div>
+
+<app-componente-con-imput usuario="{{ usuario }}">
+ 
+</app-componente-con-imput>
