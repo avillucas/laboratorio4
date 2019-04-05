@@ -1,0 +1,10 @@
+<table class="profesores">
+  <thead>
+    <th>legajo</th>
+    <th>materia</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profesor of listadoProfesores" app-fila-profesor [profesorData]="profesor" >
+    </tr>
+  </tbody>
+</table>
