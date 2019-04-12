@@ -7,7 +7,7 @@
         link to user component
       </a>
 
-      <p><a class="btn btn-primary btn-lg" href="#" [routerLink]="['/inicio/componente-a']" role="button">Componente A</a></p>
+      <p><a class="btn btn-primary btn-lg" href="#" [routerLink]="[{ outlets:{'interno':'componente-a'}}]" role="button">Componente A</a></p>
       <p><a class="btn btn-primary btn-lg" href="#"  [routerLink]="['/inicio/componente-b']"role="button">Componente B</a></p>
       <p><a class="btn btn-primary btn-lg" href="#"  [routerLink]="['/inicio/componente-c']" role="button">Componente C</a></p>
     </div>
