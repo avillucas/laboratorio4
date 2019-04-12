@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, OutletContext } from '@angular/router';
 import { AppComponent } from './app.component';
 import { ErrorComponent } from './componente/error/error.component';
 import { LoginComponent } from './componente/login/login.component';
@@ -33,8 +33,25 @@ import { InicioComponent } from './componente/inicio/inicio.component';
         component: HomeComponent
       },
       {
-        path: 'home',
-        component: HomeComponent
+        path: 'inicio',
+        component: InicioComponent,
+        children: [
+          {
+            path: 'componente-a',
+            component: ComponenteAComponent,
+            outlet: 'interno'
+          },
+          {
+            path: 'componente-b',
+            component: ComponenteAComponent,
+            outlet: 'interno'
+          },
+          {
+            path: 'componente-c',
+            component: ComponenteAComponent,
+            outlet: 'interno'
+          }
+        ]
       },
       {
         path: '**',

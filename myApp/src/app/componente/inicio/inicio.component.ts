@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {  Router } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
@@ -8,24 +7,9 @@ import {  Router } from '@angular/router';
 })
 export class InicioComponent implements OnInit {
 
-  private router: Router;
-  constructor( router: Router) {
-    this.router = router;
+  constructor() {
   }
 
   ngOnInit() {
   }
-
-  public seleccionA() {
-    //  this.router.navigate(['/home', { nombre: 'Lucas' }]);
-    }
-
-    public seleccionB() {
-
-    }
-
-    public seleccionC() {
-
-    }
-
 }
