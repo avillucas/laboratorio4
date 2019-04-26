@@ -1,3 +1,4 @@
+import { HeladoService } from './../../servicios/helado.service';
 import { Component, OnInit } from "@angular/core";
 import {
   Validators,
@@ -12,14 +13,10 @@ import {
   styleUrls: ["./helado-crear.component.css"]
 })
 export class HeladoCrearComponent implements OnInit {
+  constructor(private builder: FormBuilder, private heladosService: HeladoService) {}
 
-  constructor(private builder: FormBuilder) {
-  }
-
-  tipo = new FormControl('', [
-    Validators.required,
-    Validators.minLength(5),
-    Validators.maxLength(255)
+  tipo = new FormControl("", [
+    Validators.required
   ]);
 
   sabor = new FormControl("", [
@@ -36,12 +33,13 @@ export class HeladoCrearComponent implements OnInit {
     sabor: this.sabor
   });
 
-  Crear(){
-    let sabor = this.crearForm.get('sabor').value;
-    let tipo = this.crearForm.get('tipo').value;
-    let kilos = this.crearForm.get('kilos').value;
-
-    console.log(sabor, kilos,tipo);
+  Crear() {
+    let sabor = this.crearForm.get("sabor").value;
+    let tipo = this.crearForm.get("tipo").value;
+    let kilos = this.crearForm.get("kilos").value;
+    this.heladosService.crear(sabor, tipo,kilos).then(data => {
+      console.info(data);
+    });
   }
 
   ngOnInit() {}
