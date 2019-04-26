@@ -1,0 +1,21 @@
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>Sabor</th>
+      <th>Tipo</th>
+      <th>Peso</th>
+      <th>Foto</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let helado of helados" >
+      <td>{{helado.id}} </td>
+      <td>{{helado.sabor}} </td>
+      <td>{{helado.tipo}} </td>
+      <td>{{helado.kilos}} </td>
+      <td><img src="http://localhost:8080/img/helados/{{helado.id}}.jpg"  height="300px" width="300px" alt=""/> </td>
+      <td><app-boton-modificar [id]="helado.id" ></app-boton-modificar></td>
+    </tr>
+  </tbody>
+</table>
