@@ -1,0 +1,9 @@
+<form [formGroup]="buscarForm"  (ngSubmit)="Buscar()" >
+    <div class="container">
+      <label><b>Hint</b></label>
+      <input type="text" placeholder="Ingrese parte de la descripcion" name="hint" [formControl]="hint" required>
+      <div>
+        <button type="submit" class="signupbtn" [disabled]="!buscarForm.valid">Buscar</button>
+      </div>
+    </div>
+  </form>

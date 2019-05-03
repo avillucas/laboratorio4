@@ -1,0 +1,23 @@
+ <form [formGroup]="crearForm"  (ngSubmit)="Crear()" >
+    <div class="container">
+
+      <label><b>precio</b></label>
+      <input type="number" placeholder="Ingresa el cantidad" name="precio" [formControl]="precio" required>
+
+      <label><b>descripcion</b></label>
+      <input type="text" placeholder="Ingresa el descripcion" name="descripcion" [formControl]="descripcion" required>
+
+
+      <label><b>Tipo</b></label>
+      <select  name="tipo" [formControl]="tipo" >
+        <option value="liquido" >liquido</option>
+        <option value="solido" >solido</option>
+      </select>
+
+      <label><b>Fecha Vencimiento</b></label>
+      <input type="text" placeholder="Ingresa la fecha" name="fechaVencimiento" [formControl]="fechaVencimiento" required>
+      <div>
+        <button type="submit" class="signupbtn" [disabled]="!crearForm.valid">Crear</button>
+      </div>
+    </div>
+  </form>
