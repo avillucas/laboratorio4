@@ -7,7 +7,7 @@ import { Validators, FormBuilder, FormControl, FormGroup } from '@angular/forms'
 })
 export class BuscadorComponent implements OnInit {
 
-  @Input() productos;
+  @Input() peliculas;
   @Output() enviarEncontrados = new EventEmitter();
   elementoEncontrado: any;
 
@@ -29,11 +29,12 @@ export class BuscadorComponent implements OnInit {
   }
 
   Buscar() {
-    const buscado = this.buscarForm.get('hint').value;
+    this.elementoEncontrado = null;
+    const buscado = this.buscarForm.get('hint').value.toLowerCase();
     // tslint:disable-next-line: forin
-    for (const a in this.productos) {
-      if (this.productos[a].descripcion.indexOf(buscado) !== -1) {
-        this.elementoEncontrado = this.productos[a];
+    for (const a in this.peliculas) {
+      if (this.peliculas[a].nombre.toLowerCase().indexOf(buscado) !== -1) {
+        this.elementoEncontrado = this.peliculas[a];
         break;
       }
     }

@@ -1,14 +1,14 @@
 
-<app-buscador [productos]="productos" (enviarEncontrados)="mostrarEncontrado($event)"></app-buscador>
+<app-buscador [peliculas]="peliculas" (enviarEncontrados)="mostrarEncontrado($event)"></app-buscador>
 <div *ngIf="encontrado">
-  <h1>Encontramos</h1>
-  <img src="{{encontrado.rutaDeFoto}}"  height="80px" width="80px" alt=""/>
+  <h1>El primero encontrado</h1>
+  <img src="{{encontrado.foto}}"  height="80px" width="80px" alt=""/>
   <ul>
-  <li><strong>Precio</strong> {{encontrado.precio}}</li>
-  <li><strong>Tipo</strong> {{encontrado.tipo}}</li>
-  <li><strong>Descripcion</strong> {{encontrado.descripcion}}</li>
+    <li><strong>Nombre</strong> {{encontrado.nombre}}</li>
+    <li><strong>Tipo</strong> {{encontrado.tipo}}</li>
+    <li><strong>Fecha Estreno</strong> {{encontrado.fechaEstreno}}</li>
+    <li><strong>Cantidad Publico</strong> {{encontrado.cantidadPublico}}</li>
   </ul>
-
 </div>
 
 <table class="table table-condensed">
@@ -16,20 +16,23 @@
     <tr>
       <th>Acciones</th>
       <th>id</th>
+      <th>Nombre</th>
       <th>Tipo</th>
-      <th>Precio</th>
+      <th>Fecha Estreno</th>
+      <th>Cantidad Publico</th>
       <th>Foto</th>
-      <th>Descripción</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let producto of productos" >
-      <td><app-boton-modificar [id]="producto.id" ></app-boton-modificar></td>
-      <td>{{producto.id}} </td>
-      <td>{{producto.tipo}} </td>
-      <td>{{producto.precio}} </td>
-      <td><img src="{{producto.rutaDeFoto}}"  height="300px" width="300px" alt=""/> </td>
-      <td>{{producto.descripcion}} </td>
+    <tr *ngFor="let pelicula of peliculas" >
+      <td><app-boton-borrar [id]="pelicula.id" elementoBorrado="recargarLista()" ></app-boton-borrar></td>
+      <td>{{pelicula.id}} </td>
+      <td>{{pelicula.nombre}} </td>
+      <td>{{pelicula.tipo}} </td>
+      <td>{{pelicula.fechaEstreno}} </td>
+      <td>{{pelicula.cantidadPublico}} </td>
+      <td><img src="{{pelicula.foto}}"  height="300px" width="300px" alt=""/>
+    </td>
     </tr>
   </tbody>
 </table>

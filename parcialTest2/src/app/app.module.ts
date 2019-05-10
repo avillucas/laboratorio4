@@ -13,6 +13,13 @@ import { BuscadorComponent } from './componente/buscador/buscador.component';
 import { ErrorComponent } from './componentes/error/error.component';
 import { VentasListarComponent } from './componentes/ventas-listar/ventas-listar.component';
 import { VentasCrearComponent } from './componentes/ventas-crear/ventas-crear.component';
+import { BotonBorrarComponent } from './componentes/boton-borrar/boton-borrar.component';
+import { ActorAltaComponent } from './componentes/actor-alta/actor-alta.component';
+import { ActorListadoComponent } from './componentes/actor-listado/actor-listado.component';
+import { ActorComponent } from './componentes/actor/actor.component';
+import { PeliculaAltaComponent } from './componentes/pelicula-alta/pelicula-alta.component';
+import { PortadaComponent } from './componentes/portada/portada.component';
+import { PeliculasActoresComponent } from './componentes/peliculas-actores/peliculas-actores.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +30,14 @@ import { VentasCrearComponent } from './componentes/ventas-crear/ventas-crear.co
     BuscadorComponent,
     ErrorComponent,
     VentasListarComponent,
-    VentasCrearComponent
+    VentasCrearComponent,
+    BotonBorrarComponent,
+    ActorAltaComponent,
+    ActorListadoComponent,
+    ActorComponent,
+    PeliculaAltaComponent,
+    PortadaComponent,
+    PeliculasActoresComponent
   ],
   imports: [
     BrowserModule,
@@ -33,26 +47,30 @@ import { VentasCrearComponent } from './componentes/ventas-crear/ventas-crear.co
     ReactiveFormsModule,
     RouterModule.forRoot([
       {
-        path: 'productos',
-        component: HeladosListaComponent,
+        path: '',
+        component: PortadaComponent,
+      },
+      {
+        path: 'peliculas',
+        component: PeliculaAltaComponent,
         children: [
           {
             path: 'alta',
-            component: HeladoCrearComponent,
+            component: PeliculaAltaComponent,
           },
         ]
       },
       {
-        path: 'ventas',
-        component: HeladosListaComponent,
+        path: 'actor',
+        component: ActorAltaComponent,
         children: [
           {
-            path: 'nueva',
-            component: HeladoCrearComponent
+            path: 'alta',
+            component: ActorAltaComponent
           },
           {
             path: 'listado',
-            component: HeladosListaComponent
+            component: ActorListadoComponent
           },
         ]
       },

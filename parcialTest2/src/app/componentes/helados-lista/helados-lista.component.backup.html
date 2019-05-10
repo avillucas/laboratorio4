@@ -1,0 +1,35 @@
+
+<app-buscador [productos]="productos" (enviarEncontrados)="mostrarEncontrado($event)"></app-buscador>
+<div *ngIf="encontrado">
+  <h1>Encontramos</h1>
+  <img src="{{encontrado.rutaDeFoto}}"  height="80px" width="80px" alt=""/>
+  <ul>
+  <li><strong>Precio</strong> {{encontrado.precio}}</li>
+  <li><strong>Tipo</strong> {{encontrado.tipo}}</li>
+  <li><strong>Descripcion</strong> {{encontrado.descripcion}}</li>
+  </ul>
+
+</div>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Acciones</th>
+      <th>id</th>
+      <th>Tipo</th>
+      <th>Precio</th>
+      <th>Foto</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let producto of productos" >
+      <td><app-boton-borrar [id]="pelicula.id" ></app-boton-borrar></td>
+      <td>{{producto.id}} </td>
+      <td>{{producto.tipo}} </td>
+      <td>{{producto.precio}} </td>
+      <td><img src="{{producto.rutaDeFoto}}"  height="300px" width="300px" alt=""/> </td>
+      <td>{{producto.descripcion}} </td>
+    </tr>
+  </tbody>
+</table>

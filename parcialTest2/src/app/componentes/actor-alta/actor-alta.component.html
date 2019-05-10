@@ -1,0 +1,20 @@
+<h1 *ngIf="ok"> El actor fue creado con exito</h1>
+<form [formGroup]="crearForm"  (ngSubmit)="Crear()" >
+    <div class="container">
+
+      <label><b>nombre</b></label>
+      <input type="text" placeholder="Ingresa el nombre" name="nombre" [formControl]="nombre" required>
+
+      <label><b>apellido</b></label>
+      <input type="text" placeholder="Ingresa el apellido" name="apellido" [formControl]="apellido" required>
+
+      <label><b>nacionalidad</b></label>
+      <input type="text" placeholder="Ingresa el nacionalidad" name="nacionalidad" [formControl]="nacionalidad" required>
+
+      <label><b>Fecha Vencimiento</b></label>
+      <input type="date" placeholder="Ingresa la fecha" name="fechaNacimiento" [formControl]="fechaNacimiento" placeholder="YYYY-mm-dd" required>
+      <div>
+        <button type="submit" class="signupbtn" [disabled]="!crearForm.valid">Crear</button>
+      </div>
+    </div>
+  </form>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HeladoService } from '../../servicios/helado.service';
+import { PeliculasService } from '../../servicios/peliculas.service';
 
 @Component({
   selector: 'app-helados-lista',
@@ -7,19 +8,26 @@ import { HeladoService } from '../../servicios/helado.service';
   styleUrls: ['./helados-lista.component.css']
 })
 export class HeladosListaComponent implements OnInit {
-  private heladosService: HeladoService;
-  public productos;
+
+  public peliculas;
   encontrado: any;
 
-  constructor(serviceHelados: HeladoService) {
-    this.productos = [];
-    this.heladosService = serviceHelados;
+  public recargarLista(){
+   this.cargarLista();
   }
 
-  ngOnInit() {
-    this.heladosService.listar().then(data => {
-      this.productos = data;
+  constructor( private peliculasService: PeliculasService) {
+    this.peliculas = [];
+  }
+
+  private cargarLista ()
+   {
+    this.peliculasService.listar().then(data => {
+      this.peliculas = data;
     });
+   }
+  ngOnInit() {
+    this.cargarLista();
   }
 
   mostrarEncontrado(elementoEncontrado: any) {
