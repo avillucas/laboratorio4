@@ -1,0 +1,7 @@
+  <ul>
+    <li *ngFor="let mensaje of mensajes | async">
+      {{ mensaje.texto }}
+    </li>
+  </ul>
+  <input [(ngModel)]="mensajesTxt">
+  <button type="submit" (click)="enviarMensaje()">Enviar</button>
