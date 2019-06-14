@@ -36,7 +36,7 @@ export class IngresoComponent implements OnInit {
   Ingresar() {
     const email = this.loginForm.get('email').value;
     const clave = this.loginForm.get('clave').value;
-    this.authService.login(email, clave).then(
+    this.authService.emailPasswordLogIn(email, clave).then(
       res => {
         console.log(res);
         // this.errorMessage = '';

@@ -11,7 +11,7 @@ import { UnauthGuard } from './guards/unauth-guard.guard';
 
 const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
-  { path: 'ingreso', component: IngresoComponent, canActivate: [ UnauthGuard ] },
+  { path: 'ingreso', component: IngresoComponent},
   {
     path: '',
     component: TemplateComponent,
