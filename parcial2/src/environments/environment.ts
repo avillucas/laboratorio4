@@ -5,18 +5,16 @@
 export const environment = {
   production: false,
   firebase: {
-    type: 'service_account',
-    project_id: 'tplaboratorio4-a',
-    private_key_id: '3005b3e4ab34bf85e0e5188552b4dc24d8788f01',
-    // tslint:disable-next-line: max-line-length
-    private_key: '-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCnrCTvd6XEBLVP\n5h0qThjzhRO2DjQ1RLIdx5lUAR7l+lMZOaj5LVfkXLKlC2BB9/OHHAjrGsnDMn7/\nO/thHjSs9PevMGqqHNP9JJlMNoSjxa79r1czGMEuGwd7/9+vVovWHVwZWQNhLm8u\nZZJzqf+hpJFoLuGiQw5OL0bxYAPqOng8FPMxatdZxMiCmE3o4FWZjUDpbMmOvLVj\nOeG2WP4eqFSZQIRo+cPgIMslMY8gMGBpOy6bQl3ksQO9hhVoF8FP3j+boGT1A2RZ\nvwgiNs1NiE4YeTa4ULHqk7cqyy7A0qaTWAbxjEIcLO86yXM/ox4b+IH/42fUCNZh\nYxjfR/4bAgMBAAECggEAEJeHHiU7rjkoYfbWRantwSdBiz8+PlPaa6T6kLv9p+n3\nUCSLCoFIqcHchwV9qc7UoTbj0QlZFCuf3TeSdAqjpsZ6PgfvU38VISnT0PKyJGyl\nmNfsK+kUBgZ0XU+1fanK86NQdPerJHI5BqEpdrBIqguuvIhVw+iZIUvUsYJRUNuo\nR/TyL79Ish9JDKNKBrq7RpYgkaeiGr3yXYW5KTvZDK/vYt9EYtgXMhQRMG/KmC8Y\nPhnJGrvIlr5JohVYVb+Pf6ksW1hjCLWcAA/bACBzMEMXhZP9w0d1gmBtIl7oXVyW\nFQtD6t9xPM98lBsFylGRj+UJ5LaGoNET88uE2fHYVQKBgQDZwE1a5h9fUmH2Sw8Y\nYFsb9fkSroDTWOZiRhTwyGonCDlua29NxN6hevqANGUmi4aiWZeUxnnMwfV8azCJ\n4sA+bEouQZaTy6pgP66pcXgmu4v0t9uoUpakOG5eBbf5t6W6F0BS1SONnGkp2Obo\nPjFRGdqF8/jYV53RH6Tmze49pwKBgQDFH+7M/5Vf0/biTKDf0d+73dqY6Z2YIJWq\n3giu49O8d5ZuHiIWP2Z/Hv/OuF0TUqrD3Nw+3hjrCcoWI7wyEvfQmx2kmtHi2wSG\net/wRGiLPSMQBtYYzFNvKKh2h1G+25IsCKsC8W01GQDUYQ1OBgQZSArme8IBqoyc\nBbP8T64SbQKBgQCGHLaIAavY3biQJPKLJO14byqUov2dLefXJyrGkekvWRVmOK04\nzMQB2OhoBd02vECTxXJio0tpHRzBIJOomQumZrPZgXPoW0v4M8Czg7tov6IXexXC\nufsl8cuoBQWmu8FKt/9aBQP8uBTdPUYaTBO7y5yXXAgr1urQXhkGPlc5iQKBgEw0\nHwXCnAUylNNA2kQMBxjCF/pa/WBM4G7wbJznV/gYpt+k6Hp/QelMm4lXfiu1Hmyf\nGcl35FwgKa5LXDpjWMec32W9r/upvWMbZyyj1WJWXRKaAfQOMQbcydsgTrqgeS5q\nn2mA2T3Yj5iKeDE8ZCM91XDqUMKCIt9B2SVlzB41AoGAV9fJBdcQYtut133kLlIf\nUfKCcDYl9GhjrD1hgx6ARdJ8ziDiULre0Rg8TQ7OZbdFrgAOTNqmtTe+//2XW0C5\n595zCLlQ3SPwiFkbHiAUrasxps2zEFf4ijeqWW+cje3Mghm129UJC7FIaljM/L3K\nX0m/7Uwprwfo5HgNRah3qOM=\n-----END PRIVATE KEY-----\n',
-    client_email: 'firebase-adminsdk-xwc47@tplaboratorio4-a.iam.gserviceaccount.com',
-    client_id: '106143599116226660385',
-    auth_uri: 'https://accounts.google.com/o/oauth2/auth',
-    token_uri: 'https://oauth2.googleapis.com/token',
-    auth_provider_x509_cert_url: 'https://www.googleapis.com/oauth2/v1/certs',
-    // tslint:disable-next-line: max-line-length
-    client_x509_cert_url:'https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-xwc47%40tplaboratorio4-a.iam.gserviceaccount.com'
+    "type": "service_account",
+    "project_id": "tplaboratorio4-a",
+    "private_key_id": "b0ff1d017be1bd32986828a408ca5254ffb927a0",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDFJ/KCVR5oCTG4\niF4CUfFbCMYzww0SHY4yKU3WvnmLWoRhk6URrocXRHrQNZ5UOgl4tk/7O27AZV5D\n/Gc4Wh4ySnZfvvtWm121kna4nSCvyqBxZHL2Yus9AMOvgLlhTsiZ6cRKnwTU97mj\njaHzvBOGhb1nduFMoH1bR1UHZQ/74f7Stb1dVq0nzaJOKqp3ti1QQS9UTk5kYUK9\nZRJ4R81fXsR3+2/CXbwK47sw2yQFdfqM5rUmcrrUVKF8zkXtMzA4bbxg4TK8Awqv\n1ThOqS3wQSj9QAyJ7EouaPttbsBt/kQStJz+cVp0kLcPX6fXmI0mN3GLKuYvFK+6\nYsIGQ+mJAgMBAAECggEAXXLnVBZzYJ2HBy//2zqq21rn004PCnie1zDTt8c1xjMj\nzzpTwfNHDeTED59yifquVZyYgXz0rFX/3dqrtD6m1HCN9ikIac8fljozcqLrhNdW\nwBh8E0Pku1f66NtrQu+8TpPKmhIQkL9QqvCthGEvohIPKhTjilYBxPulFmm1L05k\nr2MHg9tZvIZrhPHOlYB7wuDOl9lRF/xgsbXDZtFcmrqL4HTtQXZRDoXf5HSx+31d\nXq+7oDB9ZerBmNrqTaDLec0VihqBLF2fqDCb2WsXb5Rav2OMIJpmtUruLg0pl/bX\nyqbjkEbFPdRkzNuO7veVSH87eIzI3J7fljMKsA/eFwKBgQDrMINX/M84FnsBw4l7\ncOQrd/PJhq39J2nQ5KtZDfTD/TC5NwS5zZN8vyzN8wRD1JpsXHzTTZq2blsR/mhK\n20rHAi5+g9a82gRCsxfTfPp91/hR2vRwleFrl82Xjtuh27+2q6LShmPDfBWrZD9A\npDWZ6WISlWQ+/EaLeHfWRQUhRwKBgQDWmeeKyfKEiqCojIfYj8z1En4mDFNugzCf\n6w7v6/47POEHe7/r79cxqXu6FOm1FXT7kd5uOl54q3rOkAax40yNiLyWVcpSOWlA\nw2qEG0OnD6U3m3zd2kjOwm/EAMO4eW0yAgf2JVeBN5pWFqE+TsnPd1M9Ib2XuOhw\nAoVzyHGGrwKBgCFCdxCWW+eepj6VnHese1f6WquBNFG8pSY5cFHju12MDLvkn/J2\ntAjMMFXfrBa7lisE2VI4g0yRRqfAxpbvdB+4m0Kg+lkyq6+TDCeIYRQy2pcY08Co\nMXy5twVb2ouFPBNlKl2DS9B1V8spHhjSIBJoAsqF/es6We+XVbsjf5o5AoGANs8D\n5dyCBfvp4GJT56mCbS0V7t3DCTyUVKOSIxCg07xOtLyUXcvZqCNjKDljHw6l3AJ7\nTqe1rRgOu2bpbtFgod1EXRj4HVvwV8wRDkBwXOCQD820bGztn3DlXqfbVOgeTWFb\nazBKUwRCdK4+7EzvGf+d0MUnSPK+2qyqLNIKvJ0CgYB4CMymzCR5Y8F2u0Niyg7I\nrgypTGXjAlVsUvg+rQBr+deIJ8GaRoShWhqbCyrJCtEN5L+bP3ds/pbhQRVn/JfY\nAaN7/hEgjvae76g3HQkFhYtYYUYDkzF+Rq6cKrG+49fAI4B3ln0vDeus7tD0qhq8\nIIiOMKuTOblQJXpq3+Dpbg==\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-xwc47@tplaboratorio4-a.iam.gserviceaccount.com",
+    "client_id": "106143599116226660385",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-xwc47%40tplaboratorio4-a.iam.gserviceaccount.com"
   },
   usuarios:[
      { email: 'cliente@test.com', clave: 'client' },
