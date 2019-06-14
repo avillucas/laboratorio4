@@ -1,0 +1,9 @@
+Armar elementos
+Manejar mascotas :
+Crear componentes:
+   - mascotaAlta = formularios que dispara en la creacion de los datos
+   - mascotaPerfil = formularios que dispara en la creacion de los datos
+   - mascotaListar = tabla que lista las mascotas que existen
+   - mascotas = pagina que contempla la union de los formularios
+
+

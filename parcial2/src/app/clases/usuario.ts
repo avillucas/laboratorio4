@@ -1,15 +1,27 @@
-export class Usuario {
-  public id: number;
-  public email: string;
-  public password: string;
-  public perfil: string;
-  public sexo: string;
+export abstract class Usuario {
+  private email: string;
+  private password: string;
+  protected admin: boolean;
 
-  constructor(id: number, email: string, password: string, perfil: string, sexo: string) {
-      this.id = id;
-      this.email = email;
-      this.password = password;
-      this.perfil = perfil;
-      this.sexo = sexo;
+  constructor(email: string, password: string) {
+    this.email = email;
+    this.password = password;
+    this.admin = false;
+  }
+
+  public set Email(value: string) {
+    this.email = value;
+  }
+
+  public get Email(): string {
+    return this.email;
+  }
+
+  public get Password(): string {
+    return this.password;
+  }
+
+  public set Password(value: string) {
+    this.password = value;
   }
 }

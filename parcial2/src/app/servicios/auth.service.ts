@@ -1,5 +1,5 @@
-import { AngularFireAuth } from "@angular/fire/auth";
-import { Usuario } from "src/app/clases/usuario";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Usuario } from 'src/app/clases/usuario';
 
 export class AuthService {
   constructor(private AFauth: AngularFireAuth) {}

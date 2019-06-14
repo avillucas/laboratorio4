@@ -22,14 +22,28 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 
-
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RegistroComponent,
+    DashboardComponent,
+    ErrorComponent,
+    IngresoComponent,
+    NotfoundComponent,
+    TemplateComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    LayoutModule.forRoot(adminLteConf),
+    BoxModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
