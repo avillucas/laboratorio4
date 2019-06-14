@@ -16,6 +16,8 @@ import {
 export class IngresoComponent implements OnInit {
   constructor(private builder: FormBuilder, private authService: AuthService) {}
 
+
+
   email = new FormControl('email', [
     Validators.required,
     Validators.minLength(1),
