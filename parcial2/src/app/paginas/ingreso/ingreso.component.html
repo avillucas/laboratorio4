@@ -7,20 +7,44 @@
     <div class="login-box-body">
       <p class="login-box-msg">Ingrese para iniciar sesion</p>
 
-      <form [formGroup]="loginForm"  (ngSubmit)="Ingresar()" >
+      <form [formGroup]="LoginForm"  (ngSubmit)="Ingresar()" >
         <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email">
-          <span class="glyphicon glyphicon-envelope form-control-feedback"  [formControl]="email"  required></span>
+          <input type="text" class="form-control"   placeholder="Email"   [formControl]="EmailControl" name="email"  required >
+          <span class="glyphicon glyphicon-envelope form-control-feedback" ></span>
+          <div *ngIf="EmailControl.invalid && (EmailControl.dirty || EmailControl.touched)" class="alert alert-danger">
+              <div *ngIf="EmailControl.errors.required">Complete con un email </div>
+              <div *ngIf="EmailControl.errors.minlength">Debe tener al menos  4 caracteres</div>
+              <div *ngIf="EmailControl.errors.maxlength">Debe tener maximo 255 caracteres</div>
+              <div *ngIf="EmailControl.errors.pattern">Formato de email valido</div>
+            </div>
         </div>
         <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password"  [formControl]="clave"  required>
+          <input type="password" class="form-control" placeholder="Password"  name="password"  [formControl]="PasswordControl"  required>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <div *ngIf="PasswordInput.invalid && (PasswordInput.dirty || PasswordInput.touched)" class="alert alert-danger">
+              <div *ngIf="PasswordInput.errors.required">Complete con un pasword </div>
+              <div *ngIf="PasswordInput.errors.minlength">Debe tener al menos  4 caracteres</div>
+              <div *ngIf="PasswordInput.errors.maxlength">Debe tener maximo 255 caracteres</div>
+          </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <button type="submit" class="btn btn-primary btn-block btn-flat"  [disabled]="!loginForm.valid" >Ingresar</button>
+            <button type="submit" class="btn btn-primary btn-block btn-flat"  [disabled]="!LoginForm.valid" >Ingresar</button>
           </div>
           <!-- /.col -->
+          <div class="row">
+              <div class="col-xs-12">
+                <span> seleccione un usuario por default</span>
+                  <ul>
+                      <li *ngFor="let usuariodefault of UsuariosDefault" >
+                        <label>
+                          <input type="radio" name="default" value="{{usuariodefault.email}}" (click)="SeleccionDefault(usuariodefault)" />
+                          {{usuariodefault.nombre}}
+                        </label>
+                      </li>
+                  </ul>
+              </div>
+          </div>
         </div>
       </form>
     </div>

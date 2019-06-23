@@ -14,8 +14,8 @@ export const environment = {
     appId: '1:829785658201:web:4959c2eac3615eef'
   },
   usuarios:[
-     { email: 'cliente@test.com', clave: 'client' },
-     { email: 'admin@test.com', clave: 'admin13' }
+     { email: 'admin@test.com', password: 'admin13' },
+     { email: 'cliente@test.com', password: 'client'}
   ]
 };
 

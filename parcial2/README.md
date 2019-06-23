@@ -1,4 +1,60 @@
 # Parcial2
+Armar elementos
+Manejar mascotas :
+Crear componentes:
+   - mascotaAlta = formularios que dispara en la creacion de los datos
+   - mascotaPerfil = formularios que dispara en la creacion de los datos
+   - mascotaListar = tabla que lista las mascotas que existen
+   - mascotas = pagina que contempla la union de los formularios
+
+GLOSARIO :
+Usuario ABS : entidad que tiene acceso al sistema ya identificado dentro del sistema  .
+Cliente: Usuario responsable de una mascota que dentro del sistema se hace cargo de la mascota  y funciona como cliente de la clinica .
+Veterinario: Usuario que puede atender mascotas
+Mascota: Animal que es atendido en la clinica , pertenece a un solo responsable
+DSNAU: ( Datos Segmentados por Nivel de Acceso de Usuario ) Los datos que se muestran estan segmentados en base al tipo o nivel de acceso del usuario; Ej: Un cliente en GET api/mascostas/ solo vera las mascostas de las que sea responsable
+
+Usuario
+  * email : string
+  * password : string
+  esAdmin : boolean
+
+Cliente : Usuario
+Veterinario : Usuario
+Administrador: Usuario
+Mascota
+  - animal : Animal
+  - raza: Raza
+  - nombre: string
+  - edad: numeric
+  - responsable: Cliente
+  - foto: string
+
+Se asume un horario de la clinica de 9 a 18 , con un bloque de turnos de 40 minutos aprox por cada turno , teniendo un break de 1 hora en el mediodia;
+se asume tambien que todos los veterinarios atienden a la vez en consultorios paralelos por lo que se pueden emitir turnos paralelos para cada uno .
+
+
+
+API (api/):
+A - GET turnos/  | Turno[] en base al usuario logueado por token : los valores de cliente llegan vacios en caso de paciente llegan vacios en caso de estar disponibles
+A1 - GET turnos/medicoId/  | Turnos[] en base al usuario y medico solicitado logueado por token : los valores de cliente llegan vacios en caso de paciente llegan vacios en caso de estar disponibles
+B - POST turno/ {time:dd-mm-YY hh:mm:ss, paciente, medico}| 201
+C - POST mascota/ {animal,raza,nombre,edad,responsableId,foto}| 201
+D - GET mascotas/ | Mascota[]
+D1 - GET mascotas/responsableId/ | Mascota[]
+
+
+PROCESO DE SOLICITUD DE TURNO
+- Se realiza una peticion a (A) este retorna turnos, desde ahi se le muestran los disponibles al paciente que elije uno y toma al seleccionar se le envia una peticion a (B)
+
+
+
+Turno
+  - paciente : Mascota
+  - solicitante: Cliente
+  - medico : Veterinario
+  - fecha: DateTime
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 

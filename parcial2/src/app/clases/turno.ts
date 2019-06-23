@@ -1,15 +1,17 @@
 import { Cliente } from './cliente';
 import { Usuario } from './usuario';
-import { Administrador } from './administrador';
+import { Veterinario } from './veterinario';
+import { Time } from '@angular/common';
+
 
 export class Turno {
-  private veterinario: Administrador;
+  private veterinario: Veterinario;
   private cliente: Cliente;
-  private fecha: Date;
+  private time: Time;
 
-  constructor(cliente: Cliente, fecha: Date, veterinario: Administrador) {
+  constructor(cliente: Cliente, time: Time, veterinario: Veterinario) {
     this.cliente = cliente;
-    this.fecha = fecha;
+    this.time = time;
     this.veterinario = veterinario;
   }
 
@@ -21,19 +23,19 @@ export class Turno {
     this.cliente = value;
   }
 
-  public get Fecha(): Date {
-    return this.fecha;
+  public get Time(): Time {
+    return this.time;
   }
 
-  public set Fecha(value: Date) {
-    this.fecha = value;
+  public set Time(value: Time) {
+    this.time = value;
   }
 
-  public get Veterinario(): Administrador {
+  public get Veterinario(): Veterinario {
     return this.veterinario;
   }
 
-  public set Veterinario(value: Administrador) {
+  public set Veterinario(value: Veterinario) {
     this.veterinario = value;
   }
 }

@@ -1,12 +1,8 @@
+import { environment } from './../../../environments/environment';
 import { AuthService } from './../../servicios/auth.service';
 import { Component, OnInit } from '@angular/core';
-
-import {
-  FormBuilder,
-  Validators,
-  FormControl,
-  FormGroup
-} from '@angular/forms';
+import { Login } from '../../clases/login.model';
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-ingreso',
@@ -14,30 +10,49 @@ import {
   styleUrls: ['./ingreso.component.sass']
 })
 export class IngresoComponent implements OnInit {
-  constructor(private builder: FormBuilder, private authService: AuthService) {}
 
+  public UsuarioDefault: Array<Login>;
+  public EmailControl: FormControl;
+  public PasswordControl: FormControl;
+  public LoginForm: FormGroup;
 
+  constructor(private builder: FormBuilder, private authService: AuthService) {
+    this.UsuarioDefault = environment.usuarios;
+    this.EmailControl = new FormControl(this.EmailControl, [
+      Validators.required,
+      Validators.email,
+      Validators.minLength(1),
+      Validators.maxLength(255)
+    ]);
 
-  email = new FormControl('email', [
-    Validators.required,
-    Validators.minLength(1),
-    Validators.maxLength(255)
-  ]);
+    this.PasswordControl = new FormControl(this.PasswordControl, [
+      Validators.required,
+      Validators.minLength(1),
+      Validators.maxLength(255)
+    ]);
 
-  clave = new FormControl('password', [
-    Validators.required,
-    Validators.minLength(1),
-    Validators.maxLength(255)
-  ]);
+    this.LoginForm = this.builder.group({
+      email: this.EmailControl,
+      password: this.PasswordControl
+    });
+  }
 
-  loginForm: FormGroup = this.builder.group({
-    email: this.email,
-    clave: this.clave
-  });
+  EmailInput() {
+    return this.LoginForm.get('email');
+  }
+
+  PasswordInput() {
+    return this.LoginForm.get('password');
+  }
+
+  SeleccionDefault(usuarioSeleccionado: Login) {
+    this.EmailInput().setValue(usuarioSeleccionado.email);
+    this.PasswordInput().setValue(usuarioSeleccionado.password);
+  }
 
   Ingresar() {
-    const email = this.loginForm.get('email').value;
-    const clave = this.loginForm.get('clave').value;
+    const email = this.EmailInput().value;
+    const clave = this.PasswordInput().value;
     this.authService.emailPasswordLogIn(email, clave).then(
       res => {
         console.log(res);
@@ -51,5 +66,10 @@ export class IngresoComponent implements OnInit {
       }
     );
   }
-  ngOnInit() {}
+
+  ngOnInit() {
+    const usuarioDefault = this.UsuarioDefault[0];
+    this.EmailControl.setValue(usuarioDefault.email);
+    this.PasswordControl.setValue(usuarioDefault.password);
+  }
 }

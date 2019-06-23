@@ -1,12 +1,13 @@
-import { Usuario } from "./usuario";
-import { TipoAnimal } from "./../enums/tipo-animal.enum";
+import { Usuario } from './usuario';
+import { Cliente } from './cliente';
+import { TipoAnimal } from './../enums/tipo-animal.enum';
 
 export class Mascota {
   private tipo: TipoAnimal;
   private raza: string;
   private nombre: string;
   private edad: number;
-  private duenio: Usuario;
+  private responsable: Cliente;
   private foto: string;
 
   constructor(   tipo: TipoAnimal,    raza: string,    nombre: string,    edad: number,    duenio: Usuario  ) {
@@ -14,7 +15,7 @@ export class Mascota {
     this.raza = raza;
     this.nombre = nombre;
     this.edad = edad;
-    this.duenio = duenio;
+    this.responsable = duenio;
   }
 
   public get Tipo(): TipoAnimal {
@@ -49,12 +50,12 @@ export class Mascota {
     this.edad = value;
   }
 
-  public get Duenio(): Usuario {
-    return this.duenio;
+  public get Responsable(): Cliente {
+    return this.responsable;
   }
 
-  public set Duenio(value: Usuario) {
-    this.duenio = value;
+  public set Responsable(value: Cliente) {
+    this.responsable = value;
   }
 
   public get Foto(): string {
@@ -64,5 +65,5 @@ export class Mascota {
   public set Foto(value: string) {
     this.foto = value;
   }
-  
+
 }
