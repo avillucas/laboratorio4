@@ -13,10 +13,15 @@ export const environment = {
     messagingSenderId: '829785658201',
     appId: '1:829785658201:web:4959c2eac3615eef'
   },
-  usuarios:[
-     { email: 'admin@test.com', password: 'admin13' },
-     { email: 'cliente@test.com', password: 'client'}
-  ]
+  usuarios: [
+    { email: 'admin@test.com', password: 'admin13', nombre: 'Admin', isAdmin: true },
+    { email: 'cliente@test.com', password: 'client', nombre: 'Cliente', isAdmin: false }
+  ],
+  db: {
+    usuarios: 'usuarios',
+    mascotas: 'mascotas',
+    turnos: 'turnos'
+  }
 };
 
 /*

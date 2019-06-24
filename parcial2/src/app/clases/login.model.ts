@@ -1,4 +1,6 @@
-export interface Login {
+export interface ILogin {
   email: string;
   password: string;
+  nombre: string;
+  isAdmin: boolean;
 }

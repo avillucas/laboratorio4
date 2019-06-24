@@ -1,8 +1,9 @@
 import { environment } from './../../../environments/environment';
 import { AuthService } from './../../servicios/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { Login } from '../../clases/login.model';
+import { ILogin } from '../../clases/login.model';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ingreso',
@@ -11,12 +12,12 @@ import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms'
 })
 export class IngresoComponent implements OnInit {
 
-  public UsuarioDefault: Array<Login>;
+  public UsuarioDefault: Array<ILogin>;
   public EmailControl: FormControl;
   public PasswordControl: FormControl;
   public LoginForm: FormGroup;
 
-  constructor(private builder: FormBuilder, private authService: AuthService) {
+  constructor(private builder: FormBuilder, private authService: AuthService, private router: Router) {
     this.UsuarioDefault = environment.usuarios;
     this.EmailControl = new FormControl(this.EmailControl, [
       Validators.required,
@@ -45,7 +46,7 @@ export class IngresoComponent implements OnInit {
     return this.LoginForm.get('password');
   }
 
-  SeleccionDefault(usuarioSeleccionado: Login) {
+  SeleccionDefault(usuarioSeleccionado: ILogin) {
     this.EmailInput().setValue(usuarioSeleccionado.email);
     this.PasswordInput().setValue(usuarioSeleccionado.password);
   }
@@ -55,14 +56,14 @@ export class IngresoComponent implements OnInit {
     const clave = this.PasswordInput().value;
     this.authService.emailPasswordLogIn(email, clave).then(
       res => {
-        console.log(res);
-        // this.errorMessage = '';
-        // this.successMessage = 'Your account has been created';
+        this.router.navigate(['/']);
       },
+      // TODO pasar esto a manejador de errores mas general
+      // TODO definir una forma de mostrar los errores centralizada para el template
       err => {
+        alert('Error en las credenciales, por favor intente con otro usuario ');
+        console.log('Error en las credenciales, por favor intente con otro usuario')
         console.log(err);
-        // this.errorMessage = err.message;
-        // this.successMessage = '';
       }
     );
   }
