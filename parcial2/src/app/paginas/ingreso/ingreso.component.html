@@ -6,16 +6,15 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
       <p class="login-box-msg">Ingrese para iniciar sesion</p>
-
       <form [formGroup]="LoginForm"  (ngSubmit)="Ingresar()" >
         <div class="form-group has-feedback">
           <input type="text" class="form-control"   placeholder="Email"   [formControl]="EmailControl" name="email"  required >
           <span class="glyphicon glyphicon-envelope form-control-feedback" ></span>
-          <div *ngIf="EmailControl.invalid && (EmailControl.dirty || EmailControl.touched)" class="alert alert-danger">
-              <div *ngIf="EmailControl.errors.required">Complete con un email </div>
-              <div *ngIf="EmailControl.errors.minlength">Debe tener al menos  4 caracteres</div>
-              <div *ngIf="EmailControl.errors.maxlength">Debe tener maximo 255 caracteres</div>
-              <div *ngIf="EmailControl.errors.pattern">Formato de email valido</div>
+          <div *ngIf="EmailInput.invalid && (EmailInput.dirty || EmailInput.touched)" class="alert alert-danger">
+              <div *ngIf="EmailInput.errors.required">Complete con un email </div>
+              <div *ngIf="EmailInput.errors.minlength">Debe tener al menos  4 caracteres</div>
+              <div *ngIf="EmailInput.errors.maxlength">Debe tener maximo 255 caracteres</div>
+              <div *ngIf="EmailInput.errors.pattern">Formato de email valido</div>
             </div>
         </div>
         <div class="form-group has-feedback">
@@ -34,15 +33,11 @@
           <!-- /.col -->
           <div class="row">
               <div class="col-xs-12">
-                <span> seleccione un usuario por default</span>
-                  <ul>
-                      <li *ngFor="let usuariodefault of UsuariosDefault" >
-                        <label>
-                          <input type="radio" name="default" value="{{usuariodefault.email}}" (click)="SeleccionDefault(usuariodefault)" />
-                          {{usuariodefault.nombre}}
-                        </label>
-                      </li>
-                  </ul>
+                 <strong class="login-box-msg">Seleccione un usuario por default</strong>
+                 <label *ngFor="let usuariodefault of UsuariosDefault" >
+                    <input type="radio" name="default" value="{{usuariodefault.email}}" (click)="SeleccionDefault(usuariodefault)" />
+                    {{usuariodefault.nombre}}
+                  </label>
               </div>
           </div>
         </div>

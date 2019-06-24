@@ -12,13 +12,13 @@ import { Router } from '@angular/router';
 })
 export class IngresoComponent implements OnInit {
 
-  public UsuarioDefault: Array<ILogin>;
+  public UsuariosDefault: Array<ILogin>;
   public EmailControl: FormControl;
   public PasswordControl: FormControl;
   public LoginForm: FormGroup;
 
   constructor(private builder: FormBuilder, private authService: AuthService, private router: Router) {
-    this.UsuarioDefault = environment.usuarios;
+    this.UsuariosDefault = environment.usuarios;
     this.EmailControl = new FormControl(this.EmailControl, [
       Validators.required,
       Validators.email,
@@ -38,22 +38,22 @@ export class IngresoComponent implements OnInit {
     });
   }
 
-  EmailInput() {
+  public get EmailInput() {
     return this.LoginForm.get('email');
   }
 
-  PasswordInput() {
+  public get PasswordInput() {
     return this.LoginForm.get('password');
   }
 
   SeleccionDefault(usuarioSeleccionado: ILogin) {
-    this.EmailInput().setValue(usuarioSeleccionado.email);
-    this.PasswordInput().setValue(usuarioSeleccionado.password);
+    this.EmailInput.setValue(usuarioSeleccionado.email);
+    this.PasswordInput.setValue(usuarioSeleccionado.password);
   }
 
   Ingresar() {
-    const email = this.EmailInput().value;
-    const clave = this.PasswordInput().value;
+    const email = this.EmailInput.value;
+    const clave = this.PasswordInput.value;
     this.authService.emailPasswordLogIn(email, clave).then(
       res => {
         this.router.navigate(['/']);
@@ -69,7 +69,7 @@ export class IngresoComponent implements OnInit {
   }
 
   ngOnInit() {
-    const usuarioDefault = this.UsuarioDefault[0];
+    const usuarioDefault = this.UsuariosDefault[0];
     this.EmailControl.setValue(usuarioDefault.email);
     this.PasswordControl.setValue(usuarioDefault.password);
   }

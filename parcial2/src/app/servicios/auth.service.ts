@@ -43,19 +43,17 @@ export class AuthService {
    * @param password password con el que hacer el ingreso
    */
   async emailPasswordLogIn(email: string, password: string) {
-     await this.afAuth.auth.signInWithEmailAndPassword(email, password);
+    await this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
+  // TODO revisar ver como hacer esto
+  async clienteSingIn(nombre, email, password) {
+    const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
+    const usuario = new Cliente(email, password, nombre);
+    usuario.UID = credential.user.uid;
+    return this.uService.crear(usuario);
+  }
 
-
-  /*
-    // TODO revisar ver como hacer esto
-    async emailPasswordSingIn(usuario: Usuario) {
-      const credential = await this.afAuth.auth.createUserWithEmailAndPassword(usuario.Email, usuario.Password);
-      usuario.UID = credential.user.uid;
-      return this.uService.crear(usuario);
-    }
-    */
 
   /*
     async googleSignin() {

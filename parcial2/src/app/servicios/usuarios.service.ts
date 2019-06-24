@@ -17,7 +17,7 @@ export class UsuariosService {
     return this.afs.collection(`${environment.db.usuarios}`).snapshotChanges();
   }
 
-  protected create(usuario: Usuario) {
+  public crear(usuario: Usuario) {
     const data = {
       uid: usuario.UID,
       email: usuario.Email,
