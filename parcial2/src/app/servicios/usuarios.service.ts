@@ -17,38 +17,6 @@ export class UsuariosService {
     return this.afs.collection(`${environment.db.usuarios}`).snapshotChanges();
   }
 
-  /*
-  public traerPorUID(UID: string): Usuario {
-    //return this.afs.object('user/'+UID).valueChanges();
-    const usuario =  this.afs.doc<IUsuario>(`${environment.db.usuarios}/${UID}`).valueChanges();
-    usuario.pipe(
-      map(
-        res => {
-            console.info(res);
-        }
-      )
-    );
-
-    return new Cliente('asdasd', 'asdasdasdas', 'asdasdasdas');
-
-
-    this.afs.doc<IUsuario>(`${environment.db.usuarios}/${UID}`).snapshotChanges()
-      .subscribe(snapshots => {
-        snapshots.map(e => {
-          return {
-            id: e.payload.doc.id,
-            ...e.payload.doc.data()
-          } as Usuario;
-        });
-
-        return new Cliente('asdasd', 'asdasdasdas', 'asdasdasdas');
-        // return snapshots.toTipoEspecifico();
-      });
-    return null;
-
-  }
-  */
-
   protected create(usuario: Usuario) {
     const data = {
       uid: usuario.UID,
