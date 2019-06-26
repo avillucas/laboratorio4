@@ -37,7 +37,7 @@
                  <strong class="login-box-msg">Seleccione un usuario por default</strong>
                  <label *ngFor="let usuariodefault of UsuariosDefault" >
                     <input type="radio" name="default" value="{{usuariodefault.email}}" (click)="SeleccionDefault(usuariodefault)" />
-                    {{usuariodefault.nombre}}
+                    {{usuariodefault.email}}
                   </label>
               </div>
           </div>

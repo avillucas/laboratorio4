@@ -61,7 +61,7 @@ export class IngresoComponent implements OnInit {
       // TODO pasar esto a manejador de errores mas general
       // TODO definir una forma de mostrar los errores centralizada para el template
       err => {
-        alert('Error en las credenciales, por favor intente con otro usuario ');
+        alert('Error en las credenciales, por favor revise los datos ingresados ');
         console.log('Error en las credenciales, por favor intente con otro usuario')
         console.log(err);
       }

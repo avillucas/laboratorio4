@@ -25,7 +25,7 @@ export class UsuariosService {
       admin: usuario.IsAdmin,
       veterinario: usuario.IsVeterinario,
     };
-    return this.afs.collection(`${environment.db.usuarios}`).add(data);
+    return this.afs.collection(`${environment.db.usuarios}`).doc(usuario.UID).set(data);
   }
 
   protected deleteUser(UID: string) {
