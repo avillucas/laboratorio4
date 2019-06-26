@@ -13,7 +13,7 @@ export class RegistroComponent implements OnInit {
   public NombreControl: FormControl;
   public EmailControl: FormControl;
   public PasswordControl: FormControl;
-  public RegitroForm: FormGroup;
+  public RegistroForm: FormGroup;
 
 
   constructor(private builder: FormBuilder, private authService: AuthService, private router: Router) {
@@ -36,7 +36,7 @@ export class RegistroComponent implements OnInit {
       Validators.maxLength(255)
     ]);
 
-    this.RegitroForm = this.builder.group({
+    this.RegistroForm = this.builder.group({
       nombre: this.NombreControl,
       email: this.EmailControl,
       password: this.PasswordControl
@@ -44,23 +44,22 @@ export class RegistroComponent implements OnInit {
   }
 
   public get NombreInput() {
-    return this.RegitroForm.get('nombre');
+    return this.RegistroForm.get('nombre');
   }
 
   public get EmailInput() {
-    return this.RegitroForm.get('email');
+    return this.RegistroForm.get('email');
   }
 
   public get PasswordInput() {
-    return this.RegitroForm.get('password');
+    return this.RegistroForm.get('password');
   }
 
   Registrar() {
     const email = this.EmailInput.value;
     const nombre = this.NombreInput.value;
     const password = this.PasswordInput.value;
-    this.authService.clienteSingIn(nombre, email, password).then(
-      res => {
+    this.authService.clienteSingIn(nombre, email, password).then(res => {
         this.router.navigate(['']);
       },
       // TODO pasar esto a manejador de errores mas general

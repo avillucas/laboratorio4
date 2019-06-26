@@ -7,7 +7,7 @@
   <div class="register-box-body">
     <p class="login-box-msg">Registrarse como Cliente</p>
 
-    <form [formGroup]="RegistroForm"  (ngSubmit)="Regitrar()" >
+    <form [formGroup]="RegistroForm"  (ngSubmit)="Registrar()" >
       <div class="form-group has-feedback">
         <input type="text" class="form-control" placeholder="Nombre"  [formControl]="NombreControl" name="nombre" >
         <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -39,7 +39,7 @@
         </div>
         <!-- /.col -->
         <div class="col-xs-4">
-          <button type="submit" class="btn btn-primary btn-block btn-flat"  [disabled]="!RegitroForm.valid" >Registar</button>
+          <button type="submit" class="btn btn-primary btn-block btn-flat"  [disabled]="!RegistroForm.valid" >Registar</button>
         </div>
         <!-- /.col -->
       </div>
