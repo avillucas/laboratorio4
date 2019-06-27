@@ -29,4 +29,5 @@ export class UsuariosService {
     const userRef: AngularFirestoreDocument<IUsuario> = this.afs.doc(`${environment.db.usuarios} /${usuario.DAOIdentificador}`);
     return userRef.set(usuario.DAOData, { merge: true });
   }
+
 }

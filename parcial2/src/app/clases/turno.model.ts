@@ -1,6 +1,6 @@
 export interface ITurno {
-  cliente: any,
-  time: any,
-  veterinario: any,
+  paciente: JSON,
+  time: string,
+  veterinario: JSON,
 
 }

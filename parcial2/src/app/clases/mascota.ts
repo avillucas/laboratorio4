@@ -3,6 +3,7 @@ import { Cliente } from './cliente';
 import { TipoAnimal } from './../enums/tipo-animal.enum';
 import { IMascota } from './mascota.model';
 import { Persistible } from './persistible';
+import { environment } from 'src/environments/environment';
 
 export class Mascota extends Persistible {
   private tipo: TipoAnimal;
@@ -12,13 +13,13 @@ export class Mascota extends Persistible {
   private responsable: Cliente;
   private foto: string;
 
-  constructor(tipo: TipoAnimal, raza: string, nombre: string, edad: number, duenio: Usuario) {
+  constructor(tipo: TipoAnimal, raza: string, nombre: string, edad: number, responsable: Usuario) {
     super();
     this.tipo = tipo;
     this.raza = raza;
     this.nombre = nombre;
     this.edad = edad;
-    this.responsable = duenio;
+    this.responsable = responsable;
   }
 
   public get Tipo(): TipoAnimal {
@@ -83,5 +84,11 @@ export class Mascota extends Persistible {
   get DAOIdentificador(): string {
     return null;
   }
+
+  get DAOReferencia(): string {
+    return `${environment.db.mascotas} /${this.DAOIdentificador}`;
+  }
+
+
 
 }

@@ -18,10 +18,10 @@ export class MascostasService {
   }
 
   crear(mascota: Mascota) {
-    return this.afs.collection(`${environment.db.mascotas}`).doc(mascota.DAOIdentificador).set(mascota.DAOData);
+    return this.afs.collection(`${environment.db.mascotas}`).add(mascota.DAOData);
   }
 
-  deleteUser(mascota: Mascota) {
+  borrar(mascota: Mascota) {
     return this.afs.collection(`${environment.db.mascotas}`).doc(mascota.DAOIdentificador).delete();
   }
 

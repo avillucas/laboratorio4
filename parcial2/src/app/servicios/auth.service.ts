@@ -23,7 +23,6 @@ export class AuthService {
     private afs: AngularFirestore,
     private uService: UsuariosService
   ) {
-    // Get the auth state, then fetch the Firestore user document or return null
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
         // Logged in
@@ -34,7 +33,7 @@ export class AuthService {
           return of(null);
         }
       })
-    )
+    );
   }
 
   /**
@@ -46,7 +45,12 @@ export class AuthService {
     await this.afAuth.auth.signInWithEmailAndPassword(email, password);
   }
 
-  // TODO revisar ver como hacer esto
+  /**
+   * Registro de un usuario y posterior logueo
+   * @param nombre  nombre del cliente
+   * @param email email del cliente
+   * @param password  password del cliente
+   */
   async clienteSingIn(nombre, email, password) {
     const credential = await this.afAuth.auth.createUserWithEmailAndPassword(email, password);
     const usuario = new Cliente(email, password, nombre);
@@ -54,15 +58,13 @@ export class AuthService {
     return this.uService.crear(usuario);
   }
 
+  get CurrentUID(): string {
+    return this.afAuth.auth.currentUser.uid;
+  }
 
-  /*
-    async googleSignin() {
-      const provider = new auth.GoogleAuthProvider();
-      const credential = await this.afAuth.auth.signInWithPopup(provider);
-      usuario.UID = credential.user.uid;
-      return this.uService.actualizar(usuario);
-    }
-  */
+  /**
+   * Cerrar sesion del cliente autenticado
+   */
   async CerrarSesion() {
     await this.afAuth.auth.signOut();
     return true;

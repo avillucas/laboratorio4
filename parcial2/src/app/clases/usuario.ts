@@ -1,6 +1,7 @@
 import { Veterinario } from './veterinario';
 import { Persistible } from './persistible';
 import { IUsuario } from './usuario.model';
+import { environment } from 'src/environments/environment';
 export abstract class Usuario extends Persistible {
   private uid: string;
   private email: string;
@@ -70,6 +71,10 @@ export abstract class Usuario extends Persistible {
 
   get DAOIdentificador(): string {
     return this.uid;
+  }
+
+  get DAOReferencia(): string {
+    return `${environment.db.usuarios} /${this.DAOIdentificador}`;
   }
 
 }

@@ -4,6 +4,7 @@ import { Veterinario } from './veterinario';
 import { Time } from '@angular/common';
 import { Persistible } from './persistible';
 import { ITurno } from './turno.model';
+import { environment } from 'src/environments/environment';
 
 
 export class Turno  extends Persistible{
@@ -44,13 +45,17 @@ export class Turno  extends Persistible{
 
   get DAOData(): ITurno {
     return {
-      cliente: this.cliente.DAOData,
-      time: this.time ,
+      paciente: this.cliente.DAOData,
+      time: this.time.toString() ,
       veterinario: this.veterinario.DAOData,
     };
   }
 
   get DAOIdentificador(): string {
     return null;
+  }
+
+  get DAOReferencia(): string {
+    return `${environment.db.turnos} /${this.DAOIdentificador}`;
   }
 }
