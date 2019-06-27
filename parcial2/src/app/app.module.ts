@@ -25,6 +25,9 @@ import { ProfileComponent } from './paginas/profile/profile.component';
 import { UsuariosService } from './servicios/usuarios.service';
 import { TurnosService } from './servicios/turnos.service';
 import { MascostasService } from './servicios/mascostas.service';
+import { MascotasAltaComponent } from './paginas/mascotas-alta/mascotas-alta.component';
+import { MascotasListarComponent } from './paginas/mascotas-listar/mascotas-listar.component';
+import { TipoanimalPipe } from './pipes/tipoanimal.pipe';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { MascostasService } from './servicios/mascostas.service';
     IngresoComponent,
     NotfoundComponent,
     TemplateComponent,
-    ProfileComponent
+    ProfileComponent,
+    MascotasAltaComponent,
+    MascotasListarComponent,
+    TipoanimalPipe
   ],
   imports: [
     BrowserModule,

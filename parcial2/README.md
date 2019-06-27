@@ -43,6 +43,15 @@ C - POST mascota/ {animal,raza,nombre,edad,responsableId,foto}| 201
 D - GET mascotas/ | Mascota[]
 D1 - GET mascotas/responsableId/ | Mascota[]
 
+Revisar guard 
+
+Componentes :
+ 
+Alta de mascotas 
+Listar Mascotas 
+Alta de Turnos 
+Lista Turnos
+
 
 PROCESO DE SOLICITUD DE TURNO
 - Se realiza una peticion a (A) este retorna turnos, desde ahi se le muestran los disponibles al paciente que elije uno y toma al seleccionar se le envia una peticion a (B)

@@ -1,5 +1,7 @@
 import { Veterinario } from './veterinario';
-export abstract class Usuario {
+import { Persistible } from './persistible';
+import { IUsuario } from './usuario.model';
+export abstract class Usuario extends Persistible {
   private uid: string;
   private email: string;
   private password: string;
@@ -8,6 +10,7 @@ export abstract class Usuario {
   protected veterinario: boolean;
 
   constructor(email: string, password: string, nombre: string, admin: boolean = false, veterinario: boolean = false) {
+    super();
     this.email = email;
     this.password = password;
     this.nombre = nombre;
@@ -53,6 +56,20 @@ export abstract class Usuario {
 
   public set UID(value: string) {
     this.uid = value;
+  }
+
+  get DAOData(): IUsuario {
+    return {
+      uid: this.uid,
+      email: this.email,
+      nombre: this.nombre,
+      admin: this.admin,
+      veterinario: this.veterinario,
+    };
+  }
+
+  get DAOIdentificador(): string {
+    return this.uid;
   }
 
 }

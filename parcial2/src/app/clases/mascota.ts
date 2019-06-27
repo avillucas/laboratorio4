@@ -1,8 +1,10 @@
 import { Usuario } from './usuario';
 import { Cliente } from './cliente';
 import { TipoAnimal } from './../enums/tipo-animal.enum';
+import { IMascota } from './mascota.model';
+import { Persistible } from './persistible';
 
-export class Mascota {
+export class Mascota extends Persistible {
   private tipo: TipoAnimal;
   private raza: string;
   private nombre: string;
@@ -10,7 +12,8 @@ export class Mascota {
   private responsable: Cliente;
   private foto: string;
 
-  constructor(   tipo: TipoAnimal,    raza: string,    nombre: string,    edad: number,    duenio: Usuario  ) {
+  constructor(tipo: TipoAnimal, raza: string, nombre: string, edad: number, duenio: Usuario) {
+    super();
     this.tipo = tipo;
     this.raza = raza;
     this.nombre = nombre;
@@ -64,6 +67,21 @@ export class Mascota {
 
   public set Foto(value: string) {
     this.foto = value;
+  }
+
+  get DAOData(): IMascota {
+    return {
+      tipo: this.tipo,
+      raza: this.raza,
+      nombre: this.nombre,
+      edad: this.edad,
+      responsable: this.responsable.DAOData,
+      //foto: '-'
+    };
+  }
+
+  get DAOIdentificador(): string {
+    return null;
   }
 
 }

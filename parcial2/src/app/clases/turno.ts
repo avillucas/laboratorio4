@@ -2,14 +2,17 @@ import { Cliente } from './cliente';
 import { Usuario } from './usuario';
 import { Veterinario } from './veterinario';
 import { Time } from '@angular/common';
+import { Persistible } from './persistible';
+import { ITurno } from './turno.model';
 
 
-export class Turno {
+export class Turno  extends Persistible{
   private veterinario: Veterinario;
   private cliente: Cliente;
   private time: Time;
 
   constructor(cliente: Cliente, time: Time, veterinario: Veterinario) {
+    super();
     this.cliente = cliente;
     this.time = time;
     this.veterinario = veterinario;
@@ -37,5 +40,17 @@ export class Turno {
 
   public set Veterinario(value: Veterinario) {
     this.veterinario = value;
+  }
+
+  get DAOData(): ITurno {
+    return {
+      cliente: this.cliente.DAOData,
+      time: this.time ,
+      veterinario: this.veterinario.DAOData,
+    };
+  }
+
+  get DAOIdentificador(): string {
+    return null;
   }
 }

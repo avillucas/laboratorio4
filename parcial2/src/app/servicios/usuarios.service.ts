@@ -13,34 +13,20 @@ export class UsuariosService {
   constructor(private afs: AngularFirestore) {
   }
 
-  public traerTodos() {
+  traerTodos() {
     return this.afs.collection(`${environment.db.usuarios}`).snapshotChanges();
   }
 
-  public crear(usuario: Usuario) {
-    const data = {
-      uid: usuario.UID,
-      email: usuario.Email,
-      nombre: usuario.Nombre,
-      admin: usuario.IsAdmin,
-      veterinario: usuario.IsVeterinario,
-    };
-    return this.afs.collection(`${environment.db.usuarios}`).doc(usuario.UID).set(data);
+  crear(usuario: Usuario) {
+    return this.afs.collection(`${environment.db.usuarios}`).doc(usuario.DAOIdentificador).set(usuario.DAOData);
   }
 
-  protected deleteUser(UID: string) {
-    return this.afs.collection(`${environment.db.usuarios}`).doc(UID).delete();
+  deleteUser(usuarios: Usuario) {
+    return this.afs.collection(`${environment.db.usuarios}`).doc(usuarios.DAOIdentificador).delete();
   }
 
-  protected actualizar(usuario: Usuario) {
-    const userRef: AngularFirestoreDocument<IUsuario> = this.afs.doc(`${environment.db.usuarios} /${usuario.UID}`);
-    const data = {
-      uid: usuario.UID,
-      email: usuario.Email,
-      nombre: usuario.Nombre,
-      admin: usuario.IsAdmin,
-      veterinario: usuario.IsVeterinario,
-    };
-    return userRef.set(data, { merge: true });
+  actualizar(usuario: Usuario) {
+    const userRef: AngularFirestoreDocument<IUsuario> = this.afs.doc(`${environment.db.usuarios} /${usuario.DAOIdentificador}`);
+    return userRef.set(usuario.DAOData, { merge: true });
   }
 }

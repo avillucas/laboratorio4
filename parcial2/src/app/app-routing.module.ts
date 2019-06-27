@@ -7,6 +7,7 @@ import { IngresoComponent } from './paginas/ingreso/ingreso.component';
 import { ErrorComponent } from './paginas/error/error.component';
 import { NotfoundComponent } from './paginas/notfound/notfound.component';
 import { TemplateComponent } from './paginas/template/template.component';
+import { MascotasListarComponent } from './paginas/mascotas-listar/mascotas-listar.component';
 
 const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     component: TemplateComponent,
     children: [
       { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
+      { path: 'mascotas', component: MascotasListarComponent, canActivate: [AuthGuard] },
       { path: '**', component: NotfoundComponent },
       { path: 'error', component: ErrorComponent }
     ]
