@@ -3,11 +3,12 @@ import { Usuario } from './usuario';
 import { Veterinario } from './veterinario';
 import { Time } from '@angular/common';
 import { Persistible } from './persistible';
-import { ITurno } from './turno.model';
+import { ITurno } from '../models/turno.model';
 import { environment } from 'src/environments/environment';
 
 
 export class Turno  extends Persistible{
+  private id: number;
   private veterinario: Veterinario;
   private cliente: Cliente;
   private time: Time;

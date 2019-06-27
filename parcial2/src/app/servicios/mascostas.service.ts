@@ -3,7 +3,7 @@ import { Mascota } from '../clases/mascota';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { IMascota } from 'src/app/clases/mascota.model';
+import { IMascota } from 'src/app/models/mascota.model';
 
 @Injectable({
   providedIn: 'root'

@@ -28,6 +28,7 @@ import { MascostasService } from './servicios/mascostas.service';
 import { MascotasAltaComponent } from './paginas/mascotas-alta/mascotas-alta.component';
 import { MascotasListarComponent } from './paginas/mascotas-listar/mascotas-listar.component';
 import { TipoanimalPipe } from './pipes/tipoanimal.pipe';
+import { ChatComponent } from './paginas/chat/chat.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { TipoanimalPipe } from './pipes/tipoanimal.pipe';
     ProfileComponent,
     MascotasAltaComponent,
     MascotasListarComponent,
-    TipoanimalPipe
+    TipoanimalPipe,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

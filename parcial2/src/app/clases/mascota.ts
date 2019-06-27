@@ -1,11 +1,12 @@
 import { Usuario } from './usuario';
 import { Cliente } from './cliente';
 import { TipoAnimal } from './../enums/tipo-animal.enum';
-import { IMascota } from './mascota.model';
+import { IMascota } from '../models/mascota.model';
 import { Persistible } from './persistible';
 import { environment } from 'src/environments/environment';
 
 export class Mascota extends Persistible {
+  private id: number;
   private tipo: TipoAnimal;
   private raza: string;
   private nombre: string;
@@ -70,14 +71,22 @@ export class Mascota extends Persistible {
     this.foto = value;
   }
 
+  public get Id(): number {
+    return this.id;
+  }
+  public set Id(value: number) {
+    this.id = value;
+  }
+
+
   get DAOData(): IMascota {
     return {
       tipo: this.tipo,
       raza: this.raza,
       nombre: this.nombre,
       edad: this.edad,
-      responsable: this.responsable.DAOData,
-      //foto: '-'
+      //responsable: this.responsable.DAOData,
+      foto: this.foto
     };
   }
 
@@ -88,7 +97,6 @@ export class Mascota extends Persistible {
   get DAOReferencia(): string {
     return `${environment.db.mascotas} /${this.DAOIdentificador}`;
   }
-
 
 
 }

@@ -8,18 +8,14 @@
     <th>Tipo</th>
     <th>Raza</th>
     <th>Nombre</th>
-    <th>Responsable</th>
-    <th>Foto</th>
     <th>Accion</th>
   </thead>
   <tbody>
     <tr *ngFor="let mascota of Mascotas">
-      <td>{{mascota.Tipo | tipoanimal }}</td>
+      <td>{{mascota.Tipo }}</td>
       <td>{{mascota.Raza}}</td>
       <td>{{mascota.Nombre}}</td>
       <td>{{mascota.Edad}}</td>
-      <td>{{mascota.Responsable.Nombre}}</td>
-      <td><img src="{{mascota.Foto}}" alt="Foto de {{mascota.Nombre}}" /></td>
       <td>
           <button (click)="Borrar(mascota)">Borrar</button>
       </td>

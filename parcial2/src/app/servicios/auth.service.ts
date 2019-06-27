@@ -6,12 +6,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 
 import { Observable, of } from 'rxjs';
-import { switchMap, map, take, tap } from 'rxjs/operators';
+import { switchMap, map, take, tap, first } from 'rxjs/operators';
 import { Usuario } from '../clases/usuario';
 import { UsuariosService } from './usuarios.service';
-import { IAuth } from '../clases/auth.model';
+import { IAuth } from '../models/auth.model';
 import { Cliente } from '../clases/cliente';
-import { IUsuario } from '../clases/usuario.model';
+import { IUsuario } from '../models/usuario.model';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -21,7 +21,8 @@ export class AuthService {
   constructor(
     private afAuth: AngularFireAuth,
     private afs: AngularFirestore,
-    private uService: UsuariosService
+    private uService: UsuariosService,
+    private router: Router,
   ) {
     this.user$ = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -62,11 +63,16 @@ export class AuthService {
     return this.afAuth.auth.currentUser.uid;
   }
 
+  traerUsuario() {
+    return this.user$.pipe(first()).toPromise();
+  }
+
   /**
    * Cerrar sesion del cliente autenticado
    */
   async CerrarSesion() {
     await this.afAuth.auth.signOut();
+    return this.router.navigate(['/']);
     return true;
   }
 }

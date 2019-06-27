@@ -7,7 +7,7 @@ import { TipoAnimal } from '../enums/tipo-animal.enum';
 export class TipoanimalPipe implements PipeTransform {
 
   transform(value: TipoAnimal): string {
-    return  TipoAnimal[value].toString();
+    return TipoAnimal[value].toString();
   }
 
 }

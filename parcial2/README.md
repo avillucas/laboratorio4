@@ -53,6 +53,46 @@ Alta de Turnos
 Lista Turnos
 
 
+ESTRUCTURAS : 
+turnos/{turnoId}/
+ - fechas  time 
+ - mascotas: map de datos de la mascota 
+ - veterinario : map de datos del veterinario
+usuarios/{usuarioId}
+  - mascotas: usuarios/{usuarioId}/mascotas/{mascotasId}
+  - turnos: usuarios/{usuarioId}/turnos/{turnoId}
+  - admin : boolean
+  - veterinario : boolean 
+  - nombre : string 
+  - uid : string
+  - email : string
+
+
+REGLAS : 
+service cloud.firestore {
+  match /databases/{database}/documents {
+ 
+    match /usuarios/{userId} {
+        allow read, write: if isOwner(userId);
+        allow read, write: if isAdmin();
+    }
+    
+    match /turnos/{documents=**} {
+        allow read, write: if isAdmin();
+    }
+
+    // Reusable function to determine document ownership
+    function isOwner(userId) {
+        return request.auth.uid == userId
+    }
+    
+    function isAdmin() {
+        return request.auth.uid == 'Ju0ppORcdhSVzs4EoXcVKZeDWR33'
+    }
+  }
+}
+
+
 PROCESO DE SOLICITUD DE TURNO
 - Se realiza una peticion a (A) este retorna turnos, desde ahi se le muestran los disponibles al paciente que elije uno y toma al seleccionar se le envia una peticion a (B)
 

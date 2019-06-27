@@ -1,6 +1,6 @@
 import { Veterinario } from './veterinario';
 import { Persistible } from './persistible';
-import { IUsuario } from './usuario.model';
+import { IUsuario } from '../models/usuario.model';
 import { environment } from 'src/environments/environment';
 export abstract class Usuario extends Persistible {
   private uid: string;
@@ -77,4 +77,13 @@ export abstract class Usuario extends Persistible {
     return `${environment.db.usuarios} /${this.DAOIdentificador}`;
   }
 
+/*
+  DAOFromMap(map: any): Usuario {
+    //return new Usuario();
+  }
+
+  DAOtoMap(): any {
+
+  }
+  */
 }

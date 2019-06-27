@@ -20,7 +20,7 @@ export class MascotasListarComponent implements OnInit {
   ngOnInit() {
     this.mascotasService.traerTodos().subscribe(data => {
       this.mascotas = data.map(e => {
-        return { id: e.payload.doc.id, ...e.payload.doc.data() } as Mascota;
+        return { ...e.payload.doc.data() } as Mascota;
       });
     });
   }

@@ -1,7 +1,7 @@
 import { environment } from './../../../environments/environment';
 import { AuthService } from './../../servicios/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { ILogin } from '../../clases/login.model';
+import { ILogin } from '../../models/login.model';
 import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 

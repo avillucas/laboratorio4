@@ -4,4 +4,6 @@ export interface IUsuario {
   nombre: string;
   admin: boolean;
   veterinario: boolean;
+  mascotas?:any;
+  turnos?:any;
 }

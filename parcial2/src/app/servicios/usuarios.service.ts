@@ -2,15 +2,32 @@ import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { AngularFirestoreDocument, AngularFirestore } from '@angular/fire/firestore';
 import { Usuario } from '../clases/usuario';
-import { IUsuario } from '../clases/usuario.model';
+import { IUsuario } from '../models/usuario.model';
 import { Cliente } from '../clases/cliente';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
+
+  private usuarios: Usuario[];
+
   constructor(private afs: AngularFirestore) {
+
+  }
+
+
+  async traerPorUID(UID: string) {
+    const userRef: AngularFirestoreDocument<IUsuario> = this.afs.doc(`${environment.db.usuarios} /${UID}`);
+
+    return await userRef.get().subscribe(doc => {
+      if (doc.exists) {
+        return doc.data() ;
+      }
+      return null;
+    });
   }
 
   traerTodos() {
