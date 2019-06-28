@@ -1,0 +1,79 @@
+<body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a ng-route="" ><b>Sonrisas</b></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <p class="login-box-msg">Ingrese para iniciar sesion</p>
+      <form [formGroup]="LoginForm"  (ngSubmit)="Ingresar()" >
+        <div class="form-group has-feedback">
+          <input type="text" class="form-control"   placeholder="Email"   [formControl]="EmailControl" name="email"  required >
+          <span class="glyphicon glyphicon-envelope form-control-feedback" ></span>
+          <div *ngIf="EmailInput.invalid && (EmailInput.dirty || EmailInput.touched)" class="alert alert-danger">
+              <div *ngIf="EmailInput.errors.required">Complete con un email </div>
+              <div *ngIf="EmailInput.errors.minlength">Debe tener al menos  4 caracteres</div>
+              <div *ngIf="EmailInput.errors.maxlength">Debe tener maximo 255 caracteres</div>
+              <div *ngIf="EmailInput.errors.pattern">Formato de email valido</div>
+            </div>
+        </div>
+        <div class="form-group has-feedback">
+          <input type="password" class="form-control" placeholder="Password"  name="password"  [formControl]="PasswordControl"  required>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          <div *ngIf="PasswordInput.invalid && (PasswordInput.dirty || PasswordInput.touched)" class="alert alert-danger">
+              <div *ngIf="PasswordInput.errors.required">Complete con un pasword </div>
+              <div *ngIf="PasswordInput.errors.minlength">Debe tener al menos  4 caracteres</div>
+              <div *ngIf="PasswordInput.errors.maxlength">Debe tener maximo 255 caracteres</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="submit" class="btn btn-primary btn-block btn-flat"  [disabled]="!LoginForm.valid" >Ingresar</button>
+          </div>
+          <a routerLink="/registro" class="text-center">Registrarse</a>
+          <!-- /.col -->
+          <div class="row">
+              <div class="col-xs-12">
+                 <strong class="login-box-msg">Seleccione un usuario por default</strong>
+                 <label *ngFor="let usuariodefault of UsuariosDefault" >
+                    <input type="radio" name="default" value="{{usuariodefault.email}}" (click)="SeleccionDefault(usuariodefault)" />
+                    {{usuariodefault.email}}
+                  </label>
+              </div>
+          </div>
+        </div>
+      </form>
+      <!--
+      <div class="social-auth-links text-center">
+        <p>- OR -</p>
+        <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Sign in using
+          Facebook</a>
+        <a href="#" class="btn btn-block btn-social btn-google btn-flat"><i class="fa fa-google-plus"></i> Sign in using
+          Google+</a>
+      </div>
+
+    <a href="#">I forgot my password</a>
+    <br/>
+    -->
+
+  </div>
+    <!-- /.login-box-body -->
+  </div>
+  <!-- /.login-box -->
+
+  <!-- jQuery 3 -->
+  <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+  <!-- Bootstrap 3.3.7 -->
+  <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- iCheck -->
+  <script src="../../plugins/iCheck/icheck.min.js"></script>
+  <script>
+    $(function () {
+      $('input').iCheck({
+        checkboxClass: 'icheckbox_square-blue',
+        radioClass: 'iradio_square-blue',
+        increaseArea: '20%' /* optional */
+      });
+    });
+  </script>
+  </body>

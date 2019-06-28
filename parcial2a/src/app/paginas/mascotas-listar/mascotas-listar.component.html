@@ -1,0 +1,24 @@
+
+<app-mascotas-alta>
+
+</app-mascotas-alta>
+<hr/>
+<table>
+  <thead>
+    <th>Tipo</th>
+    <th>Raza</th>
+    <th>Nombre</th>
+    <th>Accion</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let mascota of Mascotas">
+      <td>{{mascota.Tipo }}</td>
+      <td>{{mascota.Raza}}</td>
+      <td>{{mascota.Nombre}}</td>
+      <td>{{mascota.Edad}}</td>
+      <td>
+          <button (click)="Borrar(mascota)">Borrar</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
