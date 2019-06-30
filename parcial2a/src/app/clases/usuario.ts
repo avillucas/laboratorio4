@@ -1,8 +1,7 @@
 import { Veterinario } from './veterinario';
-import { Persistible } from './persistible';
 import { IUsuario } from '../models/usuario.model';
 import { environment } from 'src/environments/environment';
-export abstract class Usuario extends Persistible {
+export abstract class Usuario   {
   private uid: string;
   private email: string;
   private password: string;
@@ -11,7 +10,6 @@ export abstract class Usuario extends Persistible {
   protected profesor: boolean;
 
   constructor(email: string, password: string, nombre: string, admin: boolean = false, profesor: boolean = false) {
-    super();
     this.email = email;
     this.password = password;
     this.nombre = nombre;

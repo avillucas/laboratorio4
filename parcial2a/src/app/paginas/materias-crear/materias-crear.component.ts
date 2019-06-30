@@ -76,24 +76,12 @@ export class MateriasCrearComponent implements OnInit {
     const profesor = this.profesores[this.ProfesorInput.value];
     const materiaNueva = new Materia(nombre, cuatrimestre, cupo, profesor.Nombre);
     this.mService.crear(materiaNueva).then(res => {
-      // TODO mejorar esto
-      materiaNueva.id = res.id;
-      this.mService.actualizar(materiaNueva).then(res => {
-        // TODO agregar al profesor la materia estre sus datos
-        this.EnviarMateria.emit({ materia: materiaNueva });
-      },
-        err => {
-          alert('Error al crear la materia');
-          console.log(err);
-        }
-      );
-
+      this.EnviarMateria.emit({ materia: materiaNueva });
     },
       // TODO pasar esto a manejador de errores mas general
       // TODO definir una forma de mostrar los errores centralizada para el template
       err => {
         alert('Error al crear la materia');
-        console.log(err);
       }
     );
   }

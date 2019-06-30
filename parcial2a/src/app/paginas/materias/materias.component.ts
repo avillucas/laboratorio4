@@ -1,7 +1,11 @@
 import { Component, OnInit, Output, Input } from '@angular/core';
-import { EventEmitter } from 'events';
 import { Materia } from 'src/app/clases/materia';
 import { MateriaService } from 'src/app/servicios/materia.service';
+import { Observable } from 'rxjs';
+import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/firestore';
+import { IMateria } from '../../models/materia.model';
+import { map } from 'rxjs/operators';
+
 
 @Component({
   selector: 'app-materias',
@@ -10,32 +14,17 @@ import { MateriaService } from 'src/app/servicios/materia.service';
 })
 export class MateriasComponent implements OnInit {
 
-  public materias: Array<Materia>;
-
+  materias: any;
 
   constructor(private mService: MateriaService) {
-    this.materias = new Array<Materia>();
-  //  this.materias.push(new Materia('asdasdasd',1,20,'ASas'));
   }
 
   agregarALista(materia: Materia) {
-    console.info('agregada', materia);
     console.info(this.materias);
   }
 
   ngOnInit() {
-    this.mService.traerTodos().subscribe(result => {
-      this.items = result;
-    })
-    /*
-    subscribe(data => {
-      this.materias = data.map(e => {
-        return { ...e.payload.doc.data() } as Materia;
-      });
-    });
-
-    console.info(this.materias);
-    */
+    this.materias = this.mService.Observable;
   }
 
 }

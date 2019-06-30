@@ -2,10 +2,9 @@ import { Usuario } from './usuario';
 import { Cliente } from './cliente';
 import { TipoAnimal } from './../enums/tipo-animal.enum';
 import { IMascota } from '../models/mascota.model';
-import { Persistible } from './persistible';
 import { environment } from 'src/environments/environment';
 
-export class Mascota extends Persistible {
+export class Mascota  {
   private id: number;
   private tipo: TipoAnimal;
   private raza: string;
@@ -15,7 +14,6 @@ export class Mascota extends Persistible {
   private foto: string;
 
   constructor(tipo: TipoAnimal, raza: string, nombre: string, edad: number, responsable: Usuario) {
-    super();
     this.tipo = tipo;
     this.raza = raza;
     this.nombre = nombre;
