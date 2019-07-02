@@ -1,7 +1,7 @@
 import { Veterinario } from './veterinario';
 import { IUsuario } from '../models/usuario.model';
 import { environment } from 'src/environments/environment';
-export abstract class Usuario   {
+export abstract class Usuario {
   private uid: string;
   private email: string;
   private password: string;
@@ -57,6 +57,10 @@ export abstract class Usuario   {
     this.uid = value;
   }
 
+  public get Tipo(): string {
+    return (this.profesor) ? 'Profesor' : (this.admin) ? 'Admin' : 'Alumno';
+  }
+
   get DAOData(): IUsuario {
     return {
       uid: this.uid,
@@ -75,13 +79,13 @@ export abstract class Usuario   {
     return `${environment.db.usuarios} /${this.DAOIdentificador}`;
   }
 
-/*
-  DAOFromMap(map: any): Usuario {
-    //return new Usuario();
-  }
+  /*
+    DAOFromMap(map: any): Usuario {
+      //return new Usuario();
+    }
 
-  DAOtoMap(): any {
+    DAOtoMap(): any {
 
-  }
-  */
+    }
+    */
 }

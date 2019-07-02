@@ -14,9 +14,13 @@ import { map } from 'rxjs/operators';
 })
 export class MateriasComponent implements OnInit {
 
-  materias: any;
+  private materias: any;
 
   constructor(private mService: MateriaService) {
+  }
+
+  public get Materias(): any {
+    return this.materias;
   }
 
   agregarALista(materia: Materia) {

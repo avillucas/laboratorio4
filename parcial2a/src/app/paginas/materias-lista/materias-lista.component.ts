@@ -9,8 +9,6 @@ import { Materia } from 'src/app/clases/materia';
 })
 export class MateriasListaComponent implements OnInit {
 
-
-
   // tslint:disable-next-line: no-input-rename
   @Input('materias') Materias: Materia[];
 

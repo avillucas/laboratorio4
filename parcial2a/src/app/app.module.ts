@@ -32,6 +32,9 @@ import { ChatComponent } from './paginas/chat/chat.component';
 import { MateriasComponent } from './paginas/materias/materias.component';
 import { MateriasListaComponent } from './paginas/materias-lista/materias-lista.component';
 import { MateriasCrearComponent } from './paginas/materias-crear/materias-crear.component';
+import { UsuariosFiltrosComponent } from './paginas/usuarios-filtros/usuarios-filtros.component';
+import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
+import { UsuariosListaComponent } from './paginas/usuarios-lista/usuarios-lista.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { MateriasCrearComponent } from './paginas/materias-crear/materias-crear.
     ChatComponent,
     MateriasComponent,
     MateriasListaComponent,
-    MateriasCrearComponent
+    MateriasCrearComponent,
+    UsuariosFiltrosComponent,
+    UsuariosComponent,
+    UsuariosListaComponent
   ],
   imports: [
     BrowserModule,

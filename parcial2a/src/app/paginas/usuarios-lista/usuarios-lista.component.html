@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Tipo</th>
+    <th>Email</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let usu of Usuarios| async">
+      <td>{{ usu.id }}</td>
+      <td>{{ usu.usuario.Nombre }}</td>
+      <td>{{ usu.usuario.Tipo }}</td>
+      <td>{{ usu.usuario.Email }}</td>
+    </tr>
+  </tbody>
+</table>

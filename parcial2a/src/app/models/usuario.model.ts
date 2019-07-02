@@ -1,5 +1,5 @@
 export interface IUsuario {
-  uid: string;
+  uid?: string;
   email: string;
   nombre: string;
   admin: boolean;

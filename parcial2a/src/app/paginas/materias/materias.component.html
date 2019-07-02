@@ -1,22 +1,5 @@
 <app-materias-crear  (EnviarMateria)="agregarALista($event)" ></app-materias-crear>
 <hr/>
+<app-materias-lista [materias]="Materias"></app-materias-lista>
 
-<table>
-    <thead>
-      <th>Id</th>
-      <th>Nombre</th>
-      <th>Cuatrimestre</th>
-      <th>Cupos</th>
-      <th>Profesor</th>
-    </thead>
-    <tbody>
-      <tr *ngFor="let mat of materias| async">
-        <td>{{ mat.id }}</td>
-        <td>{{ mat.materia.Nombre }}</td>
-        <td>{{ mat.materia.Cuatrimestre }}</td>
-        <td>{{ mat.materia.Cupos }}</td>
-        <td>{{ mat.materia.Profesor }}</td>
-      </tr>
-    </tbody>
-  </table>
 

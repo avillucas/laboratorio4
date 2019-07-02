@@ -10,6 +10,8 @@ import { TemplateComponent } from './paginas/template/template.component';
 import { MascotasListarComponent } from './paginas/mascotas-listar/mascotas-listar.component';
 import { ChatComponent } from './paginas/chat/chat.component';
 import { MateriasComponent } from './paginas/materias/materias.component';
+import { IsAdminGuard } from './guards/is-admin.guard';
+import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
 
 const routes: Routes = [
   { path: 'registro', component: RegistroComponent },
@@ -19,7 +21,8 @@ const routes: Routes = [
     component: TemplateComponent,
     children: [
       { path: '', component: DashboardComponent, canActivate: [AuthGuard] },
-      { path: 'materias', component: MateriasComponent, canActivate: [AuthGuard] },
+      { path: 'materias', component: MateriasComponent, canActivate: [AuthGuard, IsAdminGuard] },
+      { path: 'usuarios', component: UsuariosComponent, canActivate: [AuthGuard, IsAdminGuard] },
       { path: '**', component: NotfoundComponent },
       { path: 'error', component: ErrorComponent }
     ]
@@ -30,4 +33,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

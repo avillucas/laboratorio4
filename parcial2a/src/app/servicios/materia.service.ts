@@ -30,7 +30,6 @@ export class MateriaService implements IPersistible {
           const imateria = a.payload.doc.data() as IMateria;
           const materia = this.DataDAO(imateria);
           const id = a.payload.doc.id;
-          console.info(materia);
           return { id, materia } as IMateriaId;
         });
       }));
@@ -68,16 +67,4 @@ export class MateriaService implements IPersistible {
       imateria.profesor
     );
   }
-
-
-  /*
-  return data and id
-  this.posts = this.postsCol.snapshotChanges()
-      .map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as Post;
-          const id = a.payload.doc.id;
-          return { id, data };
-        });
-      });*/
 }
