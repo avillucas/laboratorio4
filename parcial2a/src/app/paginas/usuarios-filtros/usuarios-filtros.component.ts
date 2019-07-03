@@ -25,17 +25,16 @@ export class UsuariosFiltrosComponent implements OnInit {
 
   }
 
-
   public get TipoInput() {
     return this.FiltroForm.get('tipo');
   }
 
   Filtrar() {
-    const tipoElegido = this.TipoInput.value;
-    this.filtrosAplicados.emit({ tipo: tipoElegido });
+    this.filtrosAplicados.emit(this.TipoInput.value);
   }
 
   ngOnInit() {
+    this.TipoInput.setValue(0);
   }
 
 }

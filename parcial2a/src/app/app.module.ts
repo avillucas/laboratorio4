@@ -35,6 +35,8 @@ import { MateriasCrearComponent } from './paginas/materias-crear/materias-crear.
 import { UsuariosFiltrosComponent } from './paginas/usuarios-filtros/usuarios-filtros.component';
 import { UsuariosComponent } from './paginas/usuarios/usuarios.component';
 import { UsuariosListaComponent } from './paginas/usuarios-lista/usuarios-lista.component';
+import { PorCupoDirective } from './directivas/por-cupo.directive';
+import { ProfesoresSelectDirective } from './directivas/profesores-select.directive';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { UsuariosListaComponent } from './paginas/usuarios-lista/usuarios-lista.
     MateriasCrearComponent,
     UsuariosFiltrosComponent,
     UsuariosComponent,
-    UsuariosListaComponent
+    UsuariosListaComponent,
+    PorCupoDirective,
+    ProfesoresSelectDirective
   ],
   imports: [
     BrowserModule,

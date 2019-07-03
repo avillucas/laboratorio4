@@ -6,6 +6,7 @@ import { IMateria } from '../models/materia.model';
 import { IMateriaId } from '../models/materiaid.model';
 import { map } from 'rxjs/operators';
 import { IPersistible } from './ipersistible.model';
+import { TipoUsuario } from '../enums/tipo-usuario.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,6 @@ export class MateriaService implements IPersistible {
   }
 
   get Observable() {
-    //    return this.collection.valueChanges();
     return this.collection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {

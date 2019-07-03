@@ -33,9 +33,16 @@
 
           <div class="form-group has-feedback">
               <span class="glyphicon glyphicon-lock form-control-feedback">Profesor</span>
+              <!--
               <select  name="profesor" [formControl]="ProfesorControl" required >
-                <!--  TODO solucionar problema como el ngFor-->
+                  TODO solucionar problema como el ngFor
                 <option value="0"> Profesor</option>
+
+              </select>
+              -->
+
+              <select  name="profesor" [formControl]="ProfesorControl" required >
+                  <option *ngFor="let profesor of Profesores  | async " [value]="profesor.usuario.Nombre">{{profesor.usuario.Nombre}}</option>
               </select>
             </div>
 

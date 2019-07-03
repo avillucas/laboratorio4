@@ -10,6 +10,7 @@ import { IUsuarioId } from '../models/usuarioid.model';
 import { Profesor } from '../clases/profesor';
 import { Alumno } from '../clases/alumno';
 import { Administrador } from '../clases/administrador';
+import { TipoUsuario } from '../enums/tipo-usuario.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -28,8 +29,22 @@ export class UsuariosService {
     return this.collection;
   }
 
-  get Observable() {
-    return this.collection.snapshotChanges().pipe(
+  traerPorTipo(tipo: TipoUsuario): Observable<IUsuarioId[]> {
+    let collection: AngularFirestoreCollection<IUsuario>;
+    // tslint:disable-next-line:triple-equals
+    if (tipo == TipoUsuario.profesor) {
+      collection = this.afs.collection(environment.db.usuarios, ref => ref.where('profesor', '==', true));
+      // tslint:disable-next-line:triple-equals
+    } else if (tipo == TipoUsuario.admin) {
+      collection = this.afs.collection(environment.db.usuarios, ref => ref.where('admin', '==', true));
+    } else {
+      collection = this.afs.collection(environment.db.usuarios, ref => ref.where('admin', '==', false));
+    }
+    return this.makeObservable(collection);
+  }
+
+  private makeObservable(collection: AngularFirestoreCollection<IUsuario>) {
+    return collection.snapshotChanges().pipe(
       map(actions => {
         return actions.map(a => {
           const iusuario = a.payload.doc.data() as IUsuario;
@@ -38,6 +53,10 @@ export class UsuariosService {
           return { id, usuario } as IUsuarioId;
         });
       }));
+  }
+
+  get Observable() {
+    return this.makeObservable(this.collection);
   }
 
   crear(usuario: Usuario) {

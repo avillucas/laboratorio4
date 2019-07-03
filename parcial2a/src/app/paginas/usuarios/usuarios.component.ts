@@ -12,7 +12,7 @@ export class UsuariosComponent implements OnInit {
 
 
   private usuariosFiltrados: any;
-  private tipoAMostrar :TipoUsuario;
+  private tipoAMostrar: TipoUsuario;
 
   public get UsuariosFiltrados(): any {
     return this.usuariosFiltrados;
@@ -20,12 +20,12 @@ export class UsuariosComponent implements OnInit {
 
   constructor(private uService: UsuariosService) { }
 
-  aplicarFiltros(tipo){
-    this.tipoAMostrar = tipo ;
+  aplicarFiltros(tipo: TipoUsuario) {
+    this.usuariosFiltrados = this.uService.traerPorTipo(tipo);
   }
 
   ngOnInit() {
-    this.usuariosFiltrados = this.uService.Observable;
+    this.usuariosFiltrados = this.uService.traerPorTipo(TipoUsuario.alumno);
   }
 
 }
